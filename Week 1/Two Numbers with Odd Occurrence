@@ -1,0 +1,18 @@
+class Solution{
+    public:
+    vector<long long int> twoOddNum(long long int nums[], long long int n)  
+    {
+        long long Xor=0;
+        for(int i=0; i<n; i++){
+            Xor ^= nums[i];
+        }
+        long long set_bit = Xor & ~(Xor-1);
+        long long int x=0, y=0;
+        for(int i=0; i<n; i++){
+            if(set_bit & nums[i])  x^= nums[i];
+            else y ^= nums[i];
+        }
+        if(x>y)  return {x,y};
+        return {y,x};
+    }
+};
