@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        long long Xor=0;
+        int n= nums.size();
+        for(int i=0; i<n; i++){
+            Xor ^= nums[i];
+        }
+        long long set_bit = Xor & ~(Xor-1);
+        int x=0, y=0;
+        for(int i=0; i<n; i++){
+            if(set_bit & nums[i])  x^= nums[i];
+            else y ^= nums[i];
+        }
+        return {x,y};
+    }
+};
