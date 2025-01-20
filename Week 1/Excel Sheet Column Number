@@ -1,0 +1,14 @@
+class Solution {
+public:
+
+    int dict(char ch){
+        return (int)(ch - 'A') +1;
+    }
+    int titleToNumber(string columnTitle) {
+        int rank=0;
+        for(char ch : columnTitle){
+                rank = rank* 26 + dict(ch);
+        }
+        return rank;
+    }
+};
