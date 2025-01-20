@@ -1,0 +1,12 @@
+class Solution {
+  public:
+    void segregateEvenOdd(vector<int>& arr) {
+        stable_partition(arr.begin(), arr.end(),   
+                [] (auto a) { return a%2 ==0; });
+                
+        auto it = arr.begin();
+        for(; it!= arr.end(); it++){if(*it %2 ==1)  break;}
+        sort(arr.begin(),it);
+        sort(it, arr.end());
+    }
+};
