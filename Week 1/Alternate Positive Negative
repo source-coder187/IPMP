@@ -1,0 +1,23 @@
+class Solution {
+  public:
+    void rearrange(vector<int> &arr) {
+        vector<int> pos,neg;
+        int n= arr.size();
+        for(int i=0; i<n; i++){
+            if(arr[i]>=0)   pos.push_back(arr[i]);
+            else   neg.push_back(arr[i]);
+        }
+        int i=0;
+        int posId=0, negId=0;
+        bool posTurn = true;
+        while(posId < pos.size() && negId < neg.size()){
+            if(posTurn)  arr[i++] = pos[posId++];
+            else  arr[i++] = neg[negId++];
+            
+            posTurn = !posTurn;
+        }
+        while(posId < pos.size())   arr[i++] = pos[posId++];
+        while(negId < neg.size())   arr[i++] = neg[negId++];
+        
+    }
+};
