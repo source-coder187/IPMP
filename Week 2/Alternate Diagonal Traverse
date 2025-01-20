@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
+        vector<int> ans;
+        int n= mat.size();
+        int m= mat[0].size();
+        bool flag = false;
+		for(int sum=0; sum<= m+n - 2; sum++){
+		    if(flag){
+		        for(int i=0; i<=sum; i++)
+		        if(i<n && (sum-i) <m)
+		            ans.push_back(mat[i][sum-i]);
+            }
+            else{
+                for(int i=sum; i>=0; i--)
+		        if(i<n && (sum-i) <m)
+		            ans.push_back(mat[i][sum-i]);
+            }
+            flag = !flag;
+		    
+		
+	    }
+        return ans;
+    }
+};
