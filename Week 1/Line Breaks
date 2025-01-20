@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	int t;
+	cin >> t;
+	while(t--){
+	    int n,m;
+	    cin >> n >> m;
+	    int count =0;
+	    bool flag = false;
+	    for(int i=0; i<n; i++){
+	        string strip;
+	        cin >> strip;
+	        int len = strip.size();
+	        if(m >= len && !flag)  m-= len,count++;
+	        else flag = true;
+	    }
+	    cout << count << endl;
+	}
+ 
+}
