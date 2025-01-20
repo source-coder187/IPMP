@@ -1,0 +1,14 @@
+vector<int> Solution::repeatedNumber(const vector<int> &a) {
+    int n = a.size();
+    int missing, repeating;
+    for(int i=0; i<n; i++){
+        if(a[i] < 0)  repeating = i+1;
+        else a[i] *= -1;
+    }
+    
+    for(int i=0; i<n; i++)
+        if(a[i] > 0)  missing = i+1;
+    
+    vector<int> ans = {repeating, missing};
+    return ans;
+}
