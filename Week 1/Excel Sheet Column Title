@@ -1,0 +1,17 @@
+class Solution {
+public:
+
+    char str(int n){
+        return (char) ('A' + n);
+    }
+
+    string convertToTitle(int columnNumber) {
+        string result = "";
+        while(columnNumber >0){
+            columnNumber --;
+            result = str(columnNumber % 26) + result;
+            columnNumber /= 26;
+        }
+        return result;
+    }
+};
