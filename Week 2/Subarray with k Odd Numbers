@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int numberOfSubarrays(vector<int>& nums, int k) {
+        int n = nums.size();
+        int oddCount =0;
+        int initialGap =0;
+        int start=0;
+        int subarray=0;
+        for(int end=0; end<n; end++){
+            if(nums[end] % 2)  oddCount++;
+            if(oddCount == k)   {
+                initialGap = 0;
+
+                while(oddCount == k){
+                    oddCount -= nums[start]%2;
+                    start++;     initialGap++;
+                }
+
+            }
+                subarray += initialGap;
+        }
+        return subarray;
+         
+        
+    }
+};
