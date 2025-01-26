@@ -1,0 +1,29 @@
+//  struct Node {
+//   int data;
+//   struct Node *next;
+//   Node(int x) {
+//     data = x;
+//     next = NULL;
+//   }
+// };
+
+// Function to find the data of kth node from the end of a linked list.
+class Solution {
+  public:
+    int getKthFromLast(Node *head, int k) {
+        Node *main=head;
+        Node *ref=head;
+        
+        for(int i=1; i<k; i++){
+            ref = ref->next;
+            if(ref == nullptr)
+                return -1;
+        }
+        
+        while(ref->next != NULL){
+            main = main->next;
+            ref= ref->next;
+        }
+        return main->data;
+    }
+};
